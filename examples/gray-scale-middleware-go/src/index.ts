@@ -10,8 +10,8 @@ app.get("/image", (c) => {
   return fetch(imagePath);
 });
 
-app.get("/image-gray", go(mod), async () => {
-  return await fetch(imagePath);
+app.get("/image-gray", go(mod), () => {
+  return fetch(imagePath);
 });
 
 export default app;
