@@ -38,8 +38,8 @@ func BasicAuth(c *hono.Context, next func()) {
 	req := c.Request()
 	if !authenticate(req) {
 		c.SetHeader("WWW-Authenticate", `Basic realm="login is required"`)
-  	c.SetStatus(status)
-  	c.SetBody(io.NopCloser(strings.NewReader(msg + "\n")))
+		c.SetStatus(status)
+		c.SetBody(io.NopCloser(strings.NewReader(msg + "\n")))
 		return
 	}
 	next()
