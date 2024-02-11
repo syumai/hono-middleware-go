@@ -1,0 +1,17 @@
+{
+  "scripts": {
+    "build-wasm": "npm run build-wasm-go",
+    "build-wasm-tinygo": "cd go && tinygo build -o ../wasm/middleware.wasm -target wasm -no-debug ./...",
+    "build-wasm-go": "cd go && GOOS=js GOARCH=wasm go build -o ../wasm/middleware.wasm .",
+    "dev": "wrangler dev src/index.ts",
+    "deploy": "wrangler deploy --minify src/index.ts"
+  },
+  "dependencies": {
+    "@syumai/hono-middleware-go": "file:../..",
+    "hono": "^4.0.0"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20240129.0",
+    "wrangler": "^3.25.0"
+  }
+}

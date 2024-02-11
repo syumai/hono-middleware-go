@@ -1,0 +1,43 @@
+{
+  "name": "@syumai/hono-middleware-go",
+  "version": "0.1.1",
+  "description": "A middleware for Hono runnning Go",
+  "main": "dist/index.js",
+  "type": "module",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup ./src/index.ts --format esm,cjs --dts --external 'cloudflare:sockets'",
+    "publint": "publint",
+    "release": "npm run build && npm run publint && npm publish"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    }
+  },
+  "license": "MIT",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org",
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/syumai/hono-middleware-go.git"
+  },
+  "peerDependencies": {
+    "hono": "*"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20240208.0",
+    "hono": "^4.0.0",
+    "publint": "^0.2.7",
+    "tsup": "^8.0.1",
+    "typescript": "^5.3.3",
+    "wrangler": "^3.25.0"
+  }
+}
