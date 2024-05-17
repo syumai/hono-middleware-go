@@ -7,3 +7,6 @@ dist
 package-lock.json
 yarn.lock
 pnpm-lock.yaml
+
+# binary files
+*.wasm

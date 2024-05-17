@@ -1,8 +1,8 @@
 {
   "scripts": {
     "build-wasm": "npm run build-wasm-go",
-    "build-wasm-tinygo": "cd go && tinygo build -o ../wasm/middleware.wasm -target wasm -no-debug ./...",
-    "build-wasm-go": "cd go && GOOS=js GOARCH=wasm go build -o ../wasm/middleware.wasm .",
+    "build-wasm-tinygo": "mkdir -p wasm && cd go && tinygo build -o ../wasm/middleware.wasm -target wasm -no-debug ./...",
+    "build-wasm-go": "mkdir -p wasm && cd go && GOOS=js GOARCH=wasm go build -o ../wasm/middleware.wasm .",
     "dev": "wrangler dev src/index.ts",
     "deploy": "wrangler deploy --minify src/index.ts"
   },
