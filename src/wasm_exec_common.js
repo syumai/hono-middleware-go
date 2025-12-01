@@ -23,6 +23,7 @@
         O_TRUNC: -1,
         O_APPEND: -1,
         O_EXCL: -1,
+        O_DIRECTORY: -1,
       }, // unused
       writeSync(fd, buf) {
         outputBuf += decoder.decode(buf);
@@ -140,6 +141,14 @@
       },
       chdir() {
         throw enosys();
+      },
+    };
+  }
+
+  if (!globalThis.path) {
+    globalThis.path = {
+      resolve(...pathSegments) {
+        return pathSegments.join("/");
       },
     };
   }
