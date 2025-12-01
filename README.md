@@ -3,6 +3,10 @@
 * A package to write [Hono](https://github.com/honojs/hono) middleware in Go or TinyGo.
 * This package is based on [syumai/workers](https://github.com/syumai/workers).
 
+## CAUTION
+
+* TinyGo middleware is currently broken.
+
 ## Installation
 
 ```
